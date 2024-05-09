@@ -6,8 +6,8 @@ import type { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 import type { Product } from '../models/Product';
-import { MessageResponse } from '../models/MessageResponse';
-import { ProductRequest } from '../models/ProductRequest';
+import type { MessageResponse } from '../models/MessageResponse';
+import type { ProductRequest } from '../models/ProductRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +20,10 @@ export class ApiProductsService {
 
   getAllProducts(): Observable<Product[]> {
     return this._http.get<Product[]>(this.BASE_API_URL)
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this._http.get<Product>(this.BASE_API_URL + '/' + id)
   }
 
   createProduct(request: ProductRequest) {

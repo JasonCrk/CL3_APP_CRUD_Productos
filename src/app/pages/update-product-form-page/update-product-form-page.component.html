@@ -1,1 +1,81 @@
-<p>update-product-form-page works!</p>
+<p-toast />
+
+<main class="w-full h-[90vh] flex items-center justify-center">
+  <section class="flex flex-col items-start w-1/3 gap-3">
+    <p-button [link]="true" routerLink="/" icon="pi pi-arrow-left" label="Go back" severity="black" />
+
+    <h1 class="text-3xl font-bold text-center mb-3 self-center">Update product</h1>
+
+    <form
+      [formGroup]="updateProductForm"
+      (ngSubmit)="onSubmit()"
+      class="w-full pb-4 px-4 pt-10 rounded-lg shadow-lg shadow-gray-500/30 flex flex-col"
+    >
+      <div class="mb-7">
+        <p-floatLabel>
+          <p-inputNumber
+            class="w-full"
+            id="price"
+            styleClass="w-full"
+            inputStyleClass="border border-gray-300 w-full py-1 px-2"
+            formControlName="price"
+            inputId="minmaxfraction"
+            mode="decimal"
+            [minFractionDigits]="2"
+            [maxFractionDigits]="2"
+          />
+          <label for="price">Price (S/)</label>
+        </p-floatLabel>
+
+        @if (priceField.invalid && (priceField.touched || priceField.dirty || isSubmitted)) {
+          <div class="text-red-500 text-sm">
+            @if (priceField.hasError('required')) {<p>The price is required</p>}
+            @else if (priceField.hasError('min')) {<p>Must be a positive number</p>}
+          </div>
+        }
+      </div>
+
+      <div class="mb-7">
+        <p-floatLabel>
+          <p-inputNumber class="w-full" id="stock" inputId="withoutgrouping" styleClass="w-full" inputStyleClass="border border-gray-300 w-full py-1 px-2" formControlName="stock" />
+          <label for="stock">Stock</label>
+        </p-floatLabel>
+
+        @if (stockField.invalid && (stockField.touched || stockField.dirty || isSubmitted)) {
+          <div class="text-red-500 text-sm">
+            @if (stockField.hasError('required')) {<p>The stock is required</p>}
+            @else if (stockField.hasError('min')) {<p>Must be a positive number</p>}
+          </div>
+        }
+      </div>
+
+      <div class="mb-2">
+        <p-floatLabel class="w-full">
+          <textarea
+            id="description"
+            rows="5"
+            class="resize-none w-full border border-gray-300 py-1 px-2"
+            formControlName="description"
+            pInputTextarea
+          ></textarea>
+          <label for="description">Description</label>
+        </p-floatLabel>
+
+        @if (descriptionField.invalid && (descriptionField.touched || descriptionField.dirty || isSubmitted)) {
+          <div class="text-red-500 text-sm">
+            @if (descriptionField.hasError('required')) {<p>The description is required</p>}
+            @else if (descriptionField.hasError('maxlength')) {<p>Maximum 255 characters</p>}
+          </div>
+        }
+      </div>
+
+      <p-button
+        type="submit"
+        class="inline-flex justify-center"
+        styleClass="bg-purple-500 w-full py-2 text-white"
+        [loading]="isLoading"
+        label="Update"
+      />
+    </form>
+  </section>
+</main>
