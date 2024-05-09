@@ -41,11 +41,12 @@ export class UpdateProductFormPageComponent implements OnInit {
 
   isLoading = true
   isSubmitted = false
+  productId!: number
 
   ngOnInit(): void {
-    const productId = Number(this._activatedRoute.snapshot.params['id'])
+    this.productId = Number(this._activatedRoute.snapshot.params['id'])
 
-    this._apiProducts.getProductById(productId).subscribe({
+    this._apiProducts.getProductById(this.productId).subscribe({
       next: product => {
         this.updateProductForm.setValue({ price: product.price, stock: product.stock, description: product.description })
         this.isLoading = false
@@ -65,7 +66,7 @@ export class UpdateProductFormPageComponent implements OnInit {
       return
     }
 
-    this._apiProducts.createProduct(this.updateProductForm.value as ProductRequest)
+    this._apiProducts.updateProduct(this.productId, this.updateProductForm.value as ProductRequest)
       .subscribe({
         next: () => {
           this._router.navigate(['/'])

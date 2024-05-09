@@ -30,6 +30,10 @@ export class ApiProductsService {
     return this._http.post<MessageResponse>(this.BASE_API_URL, request)
   }
 
+  updateProduct(id: number, request: ProductRequest) {
+    return this._http.put<MessageResponse>(this.BASE_API_URL + '/' + id, request)
+  }
+
   deleteProduct(id: number) {
     return this._http.delete<MessageResponse>(this.BASE_API_URL + '/' + id)
   }
