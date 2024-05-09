@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+
+import { PrimeNGConfig } from 'primeng/api'
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `<router-outlet />`,
 })
-export class AppComponent {
-  title = 'cl3_app_crud_productos';
+export class AppComponent implements OnInit {
+
+  private readonly _primeNgConfig = inject(PrimeNGConfig)
+
+  ngOnInit(): void {
+    this._primeNgConfig.ripple = false
+  }
 }
