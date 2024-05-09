@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 
 import type { Product } from '../models/Product';
 import { MessageResponse } from '../models/MessageResponse';
+import { ProductRequest } from '../models/ProductRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class ApiProductsService {
 
   getAllProducts(): Observable<Product[]> {
     return this._http.get<Product[]>(this.BASE_API_URL)
+  }
+
+  createProduct(request: ProductRequest) {
+    return this._http.post<MessageResponse>(this.BASE_API_URL, request)
   }
 
   deleteProduct(id: number) {
