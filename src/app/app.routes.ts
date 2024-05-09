@@ -10,7 +10,7 @@ export const routes: Routes = [
     component: HomePageComponent,
   },
   {
-    path: '/create',
+    path: 'create',
     component: CreateProductFormPageComponent,
   },
   {
