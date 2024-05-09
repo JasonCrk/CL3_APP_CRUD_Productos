@@ -6,7 +6,7 @@
     label="New product"
     [link]="true"
     routerLink="/create"
-    class="px-4 py-2 p-button p-ripple font-normal no-underline mb-4"
+    styleClass="px-4 py-2 bg-blue-500 text-white font-normal no-underline mb-4"
     icon="pi pi-plus"
   ></p-button>
 
@@ -34,7 +34,7 @@
             <p-button
               label="Delete"
               icon="pi pi-trash"
-              class="text-white p-button bg-red-500 px-3 py-1"
+              styleClass="text-white bg-red-500 px-3 py-1"
               (click)="deleteProductConfirmation($event, product.id)"
             />
 
@@ -43,7 +43,7 @@
               [link]="true"
               icon="pi pi-pen-to-square"
               routerLink="/update/{{ product.id }}"
-              class="p-button text-white bg-purple-500 px-3 py-1"
+              styleClass="text-white bg-purple-500 px-3 py-1 no-underline"
             ></p-button>
           </td>
         </tr>
