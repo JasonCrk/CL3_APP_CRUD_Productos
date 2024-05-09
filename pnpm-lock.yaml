@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.3.0
     version: 17.3.8(@angular/common@17.3.8)(@angular/core@17.3.8)(@angular/platform-browser@17.3.8)(rxjs@7.8.1)
+  primeicons:
+    specifier: ^7.0.0
+    version: 7.0.0
   primeng:
     specifier: ^17.16.0
     version: 17.16.0(@angular/common@17.3.8)(@angular/core@17.3.8)(@angular/forms@17.3.8)(rxjs@7.8.1)(zone.js@0.14.5)
@@ -5900,6 +5903,10 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.2.0
     dev: true
+
+  /primeicons@7.0.0:
+    resolution: {integrity: sha512-jK3Et9UzwzTsd6tzl2RmwrVY/b8raJ3QZLzoDACj+oTJ0oX7L9Hy+XnVwgo4QVKlKpnP/Ur13SXV/pVh4LzaDw==}
+    dev: false
 
   /primeng@17.16.0(@angular/common@17.3.8)(@angular/core@17.3.8)(@angular/forms@17.3.8)(rxjs@7.8.1)(zone.js@0.14.5):
     resolution: {integrity: sha512-9DJYBMvI+BI/EdOxFCrbqTjpt2pV2XqCD8o5fVKLRCSFeLRCbxJMuU/VbWyeccWBSHd6zxmaWJ8MdPvO2+5QtQ==}
